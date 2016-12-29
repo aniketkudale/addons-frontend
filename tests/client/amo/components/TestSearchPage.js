@@ -16,30 +16,39 @@ describe('<SearchPage />', () => {
 
   beforeEach(() => {
     props = {
+      ResultComponent: SearchResult,
       count: 80,
       filters: { query: 'foo' },
       hasSearchParams: true,
       page: 3,
+      pathname: '/search/',
       handleSearch: sinon.spy(),
       loading: false,
       results: [{ name: 'Foo', slug: 'foo' }, { name: 'Bar', slug: 'bar' }],
-      ResultComponent: SearchResult,
     };
   });
 
   it('renders the results', () => {
     const root = render();
     const results = findByTag(root, SearchResults);
+    assert.strictEqual(results.props.ResultComponent, props.ResultComponent);
     assert.strictEqual(results.props.count, props.count);
     assert.strictEqual(results.props.results, props.results);
     assert.strictEqual(results.props.hasSearchParams, props.hasSearchParams);
     assert.strictEqual(results.props.filters, props.filters);
     assert.strictEqual(results.props.loading, props.loading);
-    assert.strictEqual(results.props.ResultComponent, props.ResultComponent);
+    assert.strictEqual(results.props.pathname, props.pathname);
     assert.deepEqual(
       Object.keys(results.props).sort(),
-      ['count', 'filters', 'hasSearchParams', 'loading', 'results',
-        'ResultComponent'].sort()
+      [
+        'ResultComponent',
+        'count',
+        'filters',
+        'hasSearchParams',
+        'loading',
+        'pathname',
+        'results',
+      ].sort()
     );
   });
 

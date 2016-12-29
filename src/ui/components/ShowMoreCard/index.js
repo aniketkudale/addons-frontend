@@ -32,8 +32,12 @@ export class ShowMoreCardBase extends React.Component {
     this.truncateToMaxHeight(ReactDOM.findDOMNode(this.contents));
   }
 
-  expandText = (event) => {
+  onClick = (event) => {
     event.preventDefault();
+    this.expandText();
+  }
+
+  expandText() {
     this.setState({ expanded: true });
   }
 

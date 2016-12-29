@@ -16,7 +16,7 @@ export const addon = new Schema('addons', { idAttribute: 'slug' });
 export const category = new Schema('categories', { idAttribute: 'slug' });
 export const user = new Schema('users', { idAttribute: 'username' });
 
-function makeQueryString(query) {
+export function makeQueryString(query) {
   return url.format({ query });
 }
 
