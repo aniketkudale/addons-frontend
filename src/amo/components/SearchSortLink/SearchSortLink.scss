@@ -5,7 +5,7 @@
   @include button($background: $base-color, $color: $link-color);
 
   border-radius: 0;
-  font-size: $font-size-s;
+  font-size: $font-size-default;
   flex-grow: 1;
   padding: 6px 0;
   text-align: center;
@@ -16,10 +16,13 @@
   }
 }
 
-.SearchSortLink--active {
+.SearchSortLink--active,
+.SearchSortLink--active:link {
   @include button($background: $link-color, $color: $base-color);
 
   border-radius: 0;
+  color: $base-color;
+  font-size: $font-size-default;
   padding: 6px 0;
 
   &:focus {

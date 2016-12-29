@@ -62,7 +62,7 @@ export class ShowMoreCardBase extends React.Component {
           {children}
         </div>
         <a className="ShowMoreCard-revealMoreLink" href="#show-more"
-          onClick={this.expandText} dangerouslySetInnerHTML={sanitizeHTML(
+          onClick={this.onClick} dangerouslySetInnerHTML={sanitizeHTML(
             i18n.gettext(
               // l10n: The "Expand to" text is for screenreaders so the link
               // makes sense out of context. The HTML makes it hidden from
