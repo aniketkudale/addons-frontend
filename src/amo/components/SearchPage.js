@@ -13,7 +13,6 @@ import './SearchPage.scss';
 export default class SearchPage extends React.Component {
   static propTypes = {
     LinkComponent: PropTypes.node.isRequired,
-    ResultComponent: PropTypes.node.isRequired,
     count: PropTypes.number,
     filters: PropTypes.object,
     hasSearchParams: PropTypes.bool.isRequired,
@@ -26,7 +25,6 @@ export default class SearchPage extends React.Component {
 
   static defaultProps = {
     LinkComponent: Link,
-    ResultComponent: SearchResult,
     filters: {},
     pathname: '/search/',
   }
@@ -45,9 +43,8 @@ export default class SearchPage extends React.Component {
 
     return (
       <div className="SearchPage">
-        <SearchResults ResultComponent={ResultComponent} count={count}
-          hasSearchParams={hasSearchParams} loading={loading} results={results}
-          filters={filters} />
+        <SearchResults count={count} hasSearchParams={hasSearchParams}
+          filters={filters} loading={loading} results={results} />
         {paginator}
       </div>
     );

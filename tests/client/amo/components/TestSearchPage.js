@@ -23,7 +23,6 @@ describe('<SearchPage />', () => {
       handleSearch: sinon.spy(),
       loading: false,
       results: [{ name: 'Foo', slug: 'foo' }, { name: 'Bar', slug: 'bar' }],
-      ResultComponent: SearchResult,
     };
   });
 
@@ -35,11 +34,9 @@ describe('<SearchPage />', () => {
     assert.strictEqual(results.props.hasSearchParams, props.hasSearchParams);
     assert.strictEqual(results.props.filters, props.filters);
     assert.strictEqual(results.props.loading, props.loading);
-    assert.strictEqual(results.props.ResultComponent, props.ResultComponent);
     assert.deepEqual(
       Object.keys(results.props).sort(),
-      ['count', 'filters', 'hasSearchParams', 'loading', 'results',
-        'ResultComponent'].sort()
+      ['count', 'filters', 'hasSearchParams', 'loading', 'results'].sort()
     );
   });
 
