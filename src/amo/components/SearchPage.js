@@ -5,10 +5,6 @@ import Paginate from 'core/components/Paginate';
 import SearchResults from 'amo/components/SearchResults';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
-import SearchResult from './SearchResult';
-
-import './SearchPage.scss';
-
 
 export default class SearchPage extends React.Component {
   static propTypes = {
@@ -31,8 +27,8 @@ export default class SearchPage extends React.Component {
 
   render() {
     const {
-      LinkComponent, ResultComponent, count, filters, hasSearchParams,
-      loading, page, pathname, results,
+      LinkComponent, count, filters, hasSearchParams, loading, page, pathname,
+      results,
     } = this.props;
     const queryParams = this.props.queryParams ||
       convertFiltersToQueryParams(filters);
