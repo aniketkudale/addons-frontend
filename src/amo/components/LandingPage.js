@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { loadLandingAddons } from 'amo/utils';
+import { singularizeAddonType } from 'core/utils';
 import translate from 'core/i18n/translate';
 
 import './LandingPage.scss';
@@ -99,12 +100,9 @@ export class LandingPageBase extends React.Component {
   }
 }
 
-export function singularizeAddonType(state, ownProps) {
-  return { addonType: ownProps.params.pluralAddonType.replace(/s$/, '') };
-}
-
-export function mapStateToProps(state) {
+export function mapStateToProps(state, ownProps) {
   return {
+    addonType: singularizeAddonType(ownProps.params.pluralAddonType),
     featuredAddons: state.landing.featured.results,
     highlyRatedAddons: state.landing.highlyRated.results,
     popularAddons: state.landing.popular.results,
@@ -116,6 +114,5 @@ export default compose(
     { deferred: true, promise: loadLandingAddons },
   ]),
   connect(mapStateToProps),
-  connect(singularizeAddonType),
   translate({ withRef: true }),
 )(LandingPageBase);

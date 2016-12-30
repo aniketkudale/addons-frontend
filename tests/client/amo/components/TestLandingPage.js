@@ -7,11 +7,7 @@ import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import * as landingActions from 'amo/actions/landing';
-import {
-  LandingPageBase,
-  mapStateToProps,
-  singularizeAddonType,
-} from 'amo/components/LandingPage';
+import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
 import createStore from 'amo/store';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/client/amo/helpers';
@@ -93,8 +89,8 @@ describe('<LandingPage />', () => {
       },
     }));
     const root = render({
-      ...singularizeAddonType(null, { params: { pluralAddonType: 'themes' } }),
-      ...mapStateToProps(store.getState()),
+      ...mapStateToProps(
+        store.getState(), { params: { pluralAddonType: 'themes' } }),
     });
 
     assert.deepEqual(

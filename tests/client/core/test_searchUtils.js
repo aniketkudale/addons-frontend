@@ -34,8 +34,8 @@ describe('searchUtils loadByCategoryIfNeeded()', () => {
     ownProps = {
       location: { query: {} },
       params: {
-        addonType: 'theme',
         application: 'android',
+        pluralAddonType: 'themes',
         slug: 'anime',
       },
     };

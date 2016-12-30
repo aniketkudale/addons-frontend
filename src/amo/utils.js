@@ -1,6 +1,7 @@
 import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
 import { getLanding, loadLanding, failLanding } from 'amo/actions/landing';
 import { featured as featuredAPI, search } from 'core/api';
+import { singularizeAddonType } from 'core/utils';
 
 
 export function fetchLandingAddons({ addonType, api, dispatch }) {
@@ -22,7 +23,7 @@ export function fetchLandingAddons({ addonType, api, dispatch }) {
 
 export function loadLandingAddons({ store: { dispatch, getState }, params }) {
   const state = getState();
-  const addonType = params.pluralAddonType.replace(/s$/, '');
+  const addonType = singularizeAddonType(params.pluralAddonType);
 
   return fetchLandingAddons({ addonType, api: state.api, dispatch });
 }

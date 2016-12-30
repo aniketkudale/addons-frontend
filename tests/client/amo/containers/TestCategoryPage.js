@@ -17,7 +17,7 @@ describe('CategoryPage.mapStateToProps()', () => {
       location: { query: {} },
       params: {
         application: 'firefox',
-        addonType: 'theme',
+        pluralAddonType: 'themes',
         slug: 'ad-block',
       },
     };

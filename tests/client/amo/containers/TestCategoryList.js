@@ -21,7 +21,7 @@ describe('<CategoryList />', () => {
         loading: true,
       },
     }, {
-      params: { addonType: 'themes' },
+      params: { pluralAddonType: 'themes' },
     });
 
     assert.deepEqual(props, {

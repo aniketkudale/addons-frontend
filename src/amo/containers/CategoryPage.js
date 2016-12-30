@@ -5,11 +5,12 @@ import { compose } from 'redux';
 
 import SearchPage from 'amo/components/SearchPage';
 import { loadByCategoryIfNeeded, parsePage } from 'core/searchUtils';
+import { singularizeAddonType } from 'core/utils';
 
 
 export function mapStateToProps(state, ownProps) {
   const filters = {
-    addonType: ownProps.params.addonType,
+    addonType: singularizeAddonType(ownProps.params.pluralAddonType),
     category: ownProps.params.slug,
     clientApp: ownProps.params.application,
   };

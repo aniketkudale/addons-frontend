@@ -162,3 +162,7 @@ export function browserBase64Decode(str) {
     return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
   }).join(''));
 }
+
+export function singularizeAddonType(pluralAddonType) {
+  return pluralAddonType.replace(/s$/, '');
+}
